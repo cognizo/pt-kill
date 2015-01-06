@@ -7083,7 +7083,7 @@ sub main {
                   ($query->{Info} || 'NULL');
             }
             if ( $o->get('execute-command') ) {
-               exec_cmd($o->get('execute-command'));
+               exec_cmd('echo "' . $query->{Id} . '" | ' . $o->get('execute-command'));
                msg('Executed ' . $o->get('execute-command'));
             }
             if ( $o->get('kill') || $o->get('kill-query') ) {
